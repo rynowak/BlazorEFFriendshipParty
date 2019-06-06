@@ -1,0 +1,36 @@
+@inherits DbContextView<IssueDbContext>
+@inject IUriHelper Uri
+
+<h1>Create a new issue</h1>
+<h5>using IssueDbContext #@DbContext.InstanceCount</h5>
+
+<EditForm Model="@issue" OnValidSubmit="@OnValidSubmit">
+    <div>
+        <p>Title</p>
+        <InputText @bind-Value="@issue.Title" />
+    </div>
+
+    <div>
+        <p>Description</p>
+        <InputTextArea @bind-Value="@issue.Description" />
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <DataAnnotationsValidator />
+</EditForm>
+
+@code {
+    [Parameter] EventCallback OnClose { get; set; }
+
+    Issue issue = new Issue();
+
+    async Task OnValidSubmit(EditContext context)
+    {
+        DbContext.Add(issue);
+        await DbContext.SaveChangesAsync();
+
+        await OnClose.InvokeAsync(null);
+    }
+}

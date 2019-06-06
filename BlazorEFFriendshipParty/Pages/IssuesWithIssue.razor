@@ -1,0 +1,65 @@
+﻿@page "/issueswithissue"
+@inherits DbContextView<IssueDbContext>
+
+<h1>Browse issues</h1>
+<h5>using IssueDbContext #@DbContext.InstanceCount</h5>
+
+<a @onclick="@ShowIssueForm">Log a new issue</a>
+
+@if (showingIssueForm)
+{
+    <NewIssueWithIssue OnClose="CloseIssueForm" />
+}
+else
+{
+    @if (issues == null)
+    {
+        <p>Loading...</p>
+    }
+    else if (issues.Count == 0)
+    {
+        <p>Nothings here, surely not everything is perfect. Why not log an issue?</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>Issue #</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            @foreach (var issue in issues)
+            {
+                <tr>
+                    <td>@issue.Id</td>
+                    <td>@issue.Description</td>
+                </tr>
+            }
+        </table>
+    }
+}
+
+
+@code {
+    bool showingIssueForm;
+    List<Issue> issues;
+
+    protected override async Task OnInitAsync()
+    {
+        issues = await DbContext.Issues.ToListAsync();
+    }
+
+    private void ShowIssueForm()
+    {
+        showingIssueForm = true;
+    }
+
+    private async Task CloseIssueForm()
+    {
+        showingIssueForm = false;
+        issues = null;
+
+        issues = await DbContext.Issues.ToListAsync();
+    }
+}

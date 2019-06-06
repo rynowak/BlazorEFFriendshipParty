@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29005.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEFFriendshipParty", "BlazorEFFriendshipParty\BlazorEFFriendshipParty.csproj", "{F54FAD80-A823-46E7-84C0-F403BC1A16D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F54FAD80-A823-46E7-84C0-F403BC1A16D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54FAD80-A823-46E7-84C0-F403BC1A16D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54FAD80-A823-46E7-84C0-F403BC1A16D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54FAD80-A823-46E7-84C0-F403BC1A16D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50B4BFB6-2459-4459-90F2-F15DC35E8D5E}
+	EndGlobalSection
+EndGlobal
